@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadaroma Candles Catalogue</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; font-family: 'Poppins', sans-serif; background: #000; position: relative; overflow: hidden; }
+
+    /* Darkened background with subtle vignette */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: 
+        radial-gradient(circle at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%),
+        url('candle-background.jpg') no-repeat center center/cover;
+      z-index: 0;
+    }
+
+    /* Centered wrapper */
+    .content-wrapper { 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      height: 100%; 
+      padding: 20px; 
+      text-align: center;
+    }
+
+    /* Content container */
+    .content {
+      position: relative; 
+      z-index: 1; 
+      max-width: 650px; 
+      width: 100%; 
+      padding: 50px 25px 60px; 
+      border-radius: 20px; 
+      background: rgba(255, 255, 255, 0.08); 
+      backdrop-filter: blur(6px); 
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+    }
+
+    /* Logo with flicker glow */
+    .logo-wrapper {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 45px;
+    }
+
+    .logo-wrapper::before {
+      content: '';
+      position: absolute;
+      top: -12px; left: -12px;
+      width: calc(100% + 24px);
+      height: calc(100% + 24px);
+      background: radial-gradient(circle, rgba(255,215,0,0.4) 0%, rgba(255,215,0,0) 70%);
+      border-radius: 50%;
+      filter: blur(12px);
+      animation: flicker 2s infinite alternate;
+      z-index: -1;
+    }
+
+    .logo {
+      max-width: 380px; /* Increased from 260px to 380px */
+      width: 70%; 
+      height: auto; 
+      animation: logoGlow 2.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes logoGlow {
+      0% { filter: drop-shadow(0 0 5px #FFD700) drop-shadow(0 0 12px #FFD700); }
+      50% { filter: drop-shadow(0 0 18px #FFD700) drop-shadow(0 0 30px #FFD700); }
+      100% { filter: drop-shadow(0 0 5px #FFD700) drop-shadow(0 0 12px #FFD700); }
+    }
+
+    @keyframes flicker {
+      0% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.55; transform: scale(1.05); }
+      100% { opacity: 0.35; transform: scale(0.95); }
+    }
+
+    /* Download button with glow & flicker effect */
+    .btn-wrapper {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 35px;
+    }
+
+    .btn-wrapper::before {
+      content: '';
+      position: absolute;
+      top: -6px; left: -6px;
+      width: calc(100% + 12px);
+      height: calc(100% + 12px);
+      background: radial-gradient(circle, rgba(255,215,0,0.4) 0%, rgba(255,215,0,0) 70%);
+      border-radius: 50px;
+      filter: blur(8px);
+      animation: flicker 2s infinite alternate;
+      z-index: -1;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #FFD700, #FFC94D);
+      color: #fff;
+      font-weight: 600;
+      padding: 16px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      box-shadow: 0 0 15px rgba(255,215,0,0.5), 0 0 25px rgba(255,215,0,0.3);
+      letter-spacing: 0.5px;
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: linear-gradient(135deg, #FFC94D, #FFD700);
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(255,215,0,0.6), 0 0 35px rgba(255,215,0,0.4);
+    }
+
+    /* Contact info with glow */
+    .contact-info { color: #fff; font-size: 0.95rem; line-height: 1.5; }
+    .contact-info a {
+      color: #FFD700; text-decoration: none; font-weight: 600;
+      animation: contactGlow 2s ease-in-out infinite alternate;
+    }
+    @keyframes contactGlow { 0% { text-shadow: 0 0 6px #FFD700, 0 0 12px #FFD700; } 100% { text-shadow: 0 0 12px #FFD700, 0 0 25px #FFD700; } }
+    .contact-info a:hover { text-decoration: underline; }
+
+    footer { margin-top: 30px; font-size: 0.9rem; opacity: 0.9; color: #fff; }
+
+    @media (max-width: 600px) {
+      .logo { max-width: 250px; width: 70%; margin-bottom: 30px; }
+      .btn { padding: 12px 28px; font-size: 1rem; }
+      .contact-info { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="content-wrapper">
+    <div class="content">
+      <!-- Logo with flicker -->
+      <div class="logo-wrapper">
+        <img src="logo.png" alt="Cadaroma Candles Logo" class="logo">
+      </div>
+
+      <!-- Download Catalogue Button -->
+      <div class="btn-wrapper">
+        <a href="cadaroma_catalogue.pdf" class="btn" download>📥 Download Catalogue</a>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <p>📞 Call & WhatsApp us: <a href="https://wa.me/918895212032" target="_blank">88952 12032</a></p>
+        <p>🚚 Delivery charges extra</p>
+      </div>
+
+      <footer>© 2025 Cadaroma Candles</footer>
+    </div>
+  </div>
+</body>
+</html>
